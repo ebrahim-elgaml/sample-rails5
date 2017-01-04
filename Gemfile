@@ -6,8 +6,15 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.0.1'
-gem 'puma', '~> 3.0'
 
+group :web do
+  gem 'puma', '~> 3.0'
+  gem 'rack-cors'
+end
+
+group :secure do
+  gem 'rack-attack'
+end
 
 group :authentication do
   gem 'devise'

@@ -12,8 +12,8 @@ RSpec.describe User, type: :model do
     end
 
     it "is has api_key" do
-      @user.save
-      @user.api_key.should_not be_blank
+      @user.save!
+      @user.reload.api_key.should_not be_blank
     end
 
     it "checks the presence of a first_name" do

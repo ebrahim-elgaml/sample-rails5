@@ -1,24 +1,18 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# sample-rails5
+
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.3.3
 
-* System dependencies
+* Rails version: 5.0.1
 
-* Configuration
+* Database: Mongoid
 
-* Database creation
+* Run test: bundle exec rspec
 
-* Database initialization
+* Api only so no view.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Mini description : user can add list of skills with a level for each skill and users can search for each other by skill.
+=======

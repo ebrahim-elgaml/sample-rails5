@@ -2,14 +2,13 @@ require 'securerandom'
 class User
   include Mongoid::Document
 
-  attr_accessible :email, :password, :first_name, :last_name
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   field :email, type: String, default: ""
-  field :firs_name, type: String, default: ""
+  field :first_name, type: String, default: ""
   field :last_name, type: String, default: ""
+  field :api_key, type: String, default: ""
   field :encrypted_password, type: String, default: ""
   field :reset_password_token, type: String
   field :reset_password_sent_at, type: Time

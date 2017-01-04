@@ -1,3 +1,4 @@
+require 'securerandom'
 class User
   include Mongoid::Document
 
@@ -19,4 +20,13 @@ class User
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip, type: String
 
+  before_create :set_token
+
+  private
+    def set_token
+      loop do
+        token = SecureRandom.base64.tr('+/=', 'Qrt')
+        break token unless User.exists?(api_key: token)
+      end
+    end
 end

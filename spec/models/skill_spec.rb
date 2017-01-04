@@ -22,7 +22,7 @@ RSpec.describe Skill, type: :model do
       @skill.email.should == "music"
     end
 
-    it "cheks uniqueness of email" do
+    it "cheks uniqueness of name" do
       @skill.save
       new_skill = Skill.new name: @skill.name
       new_skill.should_not be_valid

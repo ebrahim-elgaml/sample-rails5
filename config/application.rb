@@ -32,6 +32,10 @@ module SampleRails5
       end
     end
 
+    config.generators do |g|
+      g.orm :mongoid
+    end
+
     config.middleware.use Rack::Attack
 
     config.api_only = true

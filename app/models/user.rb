@@ -19,13 +19,21 @@ class User
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip, type: String
 
+  before_validation(on: :create) do
+    downcase_email
+  end
+
+  validates_presence_of :email, :first_name, :last_name
+  validates_uniqueness_of :email
+
   before_create :set_token
 
+  def set_token
+    self.api_key = SecureRandom.uuid.gsub(/\-/,'')
+  end
+
   private
-    def set_token
-      loop do
-        token = SecureRandom.base64.tr('+/=', 'Qrt')
-        break token unless User.exists?(api_key: token)
-      end
+    def downcase_email
+      self.email = email.downcase if email
     end
 end

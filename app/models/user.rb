@@ -18,13 +18,18 @@ class User
   field :last_sign_in_at, type: Time
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip, type: String
+  field :_id, type: String, default: ->{ email.to_s.downcase }, overwrite: true
+
 
   before_validation(on: :create) do
     downcase_email
+    self.id = email
   end
 
   validates_presence_of :email, :first_name, :last_name
   validates_uniqueness_of :email
+
+  has_many :user_skills, dependent: :destroy
 
   before_create :set_token
 

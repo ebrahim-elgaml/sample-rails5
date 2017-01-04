@@ -4,5 +4,9 @@ class UserSkill
   field :skill_id, type: String
   field :level, type: Integer
 
-  validates :level, presence: true
+  validates_inclusion_of :level, in: 1..5, message: "is not between 1 and 5"
+
+  belongs_to :user, index: true
+  belongs_to :skill, index: true
+
 end

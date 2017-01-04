@@ -17,9 +17,9 @@ RSpec.describe Skill, type: :model do
     end
 
     it "converts the name all downcase" do
-      @skill.email = "MUSIC"
+      @skill.name = "MUSIC"
       @skill.save
-      @skill.email.should == "music"
+      @skill.name.should == "music"
     end
 
     it "cheks uniqueness of name" do

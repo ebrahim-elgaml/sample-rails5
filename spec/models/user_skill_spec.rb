@@ -13,9 +13,8 @@ RSpec.describe UserSkill, type: :model do
     end
 
     it "checks the presence of level" do
-      @user_skill.name = ""
+      @user_skill.level = ""
       @user_skill.should_not be_valid
-      @user_skill.errors[:level].should == ["can't be blank"]
     end
 
     it "cheks range of level less than 5" do

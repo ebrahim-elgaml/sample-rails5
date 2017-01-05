@@ -17,3 +17,13 @@ Things you may want to cover:
 * Mini description : user can add list of skills with a level for each skill and users can search for each other by skill.
 
 =======
+
+### Sample requests:
+
+Description | Request | Body | Method
+--- | --- | --- | ---
+user register | http://localhost:3000/users | `{ "user": {"email": "a@test.com", "password": "123456789", "first_name": "fname", last_name: "lname"} }` | **POST**
+user login | http://localhost:3000/users/login | `{ "user": {"email": "a@test.com", "password": "123456789"} }`| **POST**
+signout | http://localhost:3000/users/signout | `Header { Authorization: user_api_key }` | **GET** 
+
+

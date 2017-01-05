@@ -34,7 +34,7 @@ RSpec.describe UsersController, type: :controller do
       end
     end
 
-    context "succes" do
+    context "success" do
       it "works fine" do
         post :create, @body, format: :json
         expect(response.status).to eq(201)

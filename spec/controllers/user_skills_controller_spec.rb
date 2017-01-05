@@ -35,4 +35,27 @@ RSpec.describe UserSkillsController, type: :controller do
       end
     end
   end
+
+  describe "search" do
+    before do
+      @user = create :user
+      @skill = create :skill
+      UserSkill.create skill: @skill, user: create :user
+      UserSkill.create skill: @skill, user: create :user
+      UserSkill.create skill: @skill, user: create :user
+      UserSkill.create skill: @skill, user: create :user
+      @request.headers[:Authorization] = "Token token=#{@user.api_key}"
+    end
+
+    it "finds users" do
+      get :search, { q: @skill.name }
+      expect(response.status).to eq(200)
+      expect(response.body.count).to eq(4)
+    end
+
+    it "finds no user" do
+      get :search, { q: "dskaj-1"}
+      expect(response.status).to eq(422)
+    end
+  end
 end

@@ -77,8 +77,8 @@ RSpec.describe UsersController, type: :controller do
   describe "signout" do
     it "works fine" do
       user = create :user
-      auth_header = { Authorization: user.api_key }
-      get :login, {}, { Authorization: user.api_key }
+      @request.headers[:Authorization] = "Token token=#{user.api_key}"
+      get :signout
       expect(response.status).to eq(200)
     end
   end

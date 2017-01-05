@@ -10,7 +10,7 @@ Things you may want to cover:
 
 * Database: Mongoid
 
-* Run test: bundle exec rspec
+* Run specs: bundle exec rspec
 
 * Api only so no view.
 
@@ -25,6 +25,6 @@ Description | Request | Body | Method
 --- | --- | --- | ---
 user register | http://localhost:3000/users | `{ "user": {"email": "a@test.com", "password": "123456789", "first_name": "fname", last_name: "lname"} }` | **POST**
 user login | http://localhost:3000/users/login | `{ "user": {"email": "a@test.com", "password": "123456789"} }`| **POST**
-signout | http://localhost:3000/users/signout |  | **GET**
+signout | http://localhost:3000/users/signout | ` ` | **GET**
 add skill | http://localhost:3000/user_skills | `{ "user_skill": {"skill_id": "music", "level": 3} }` | **POST**
 search users | http://localhost:3000/user_skills | `?q=muisc` | **GET**

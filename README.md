@@ -21,7 +21,7 @@ Things you may want to cover:
 ### Sample requests:
 
 Description | Request | Body | Method
---- | --- | ---
+--- | --- | --- | ---
 user register | http://localhost:3000/users | `{
 	"user":{  
   		"email": "oo@oo.com",

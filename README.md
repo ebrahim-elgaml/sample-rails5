@@ -18,7 +18,7 @@
 
 ### Sample requests:
 
-* For requests which need authorization set headers to `{ Authorization: user_api_key }`
+* For requests which need authorization set headers to `{ Authorization: Token token=user_api_key }`
 
 Description | Request | Body | Method
 --- | --- | --- | ---

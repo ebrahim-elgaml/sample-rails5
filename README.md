@@ -21,6 +21,7 @@ Things you may want to cover:
 ### Sample requests:
 
 * For requests which need authorization set headers to `{ Authorization: user_api_key }`
+
 Description | Request | Body | Method
 --- | --- | --- | ---
 user register | http://localhost:3000/users | `{ "user": {"email": "a@test.com", "password": "123456789", "first_name": "fname", last_name: "lname"} }` | **POST**

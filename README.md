@@ -23,5 +23,6 @@ Things you may want to cover:
 Description | Request | Body | Method
 --- | --- | --- | ---
 user register | http://localhost:3000/users | `{ "user": {"email": "a@test.com", "password": "123456789", "first_name": "fname", last_name: "lname"} }` | **post**
+user login | http://localhost:3000/users/login | `{ "user": {"email": "a@test.com", "password": "123456789"} }`| **post**
 
 

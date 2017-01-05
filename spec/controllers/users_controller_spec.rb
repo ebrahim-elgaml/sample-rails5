@@ -58,19 +58,19 @@ RSpec.describe UsersController, type: :controller do
     it "works fine" do
       post :login, @body, format: :json
       expect(response.status).to eq(201)
-      response.body[:api_key].should_not be_blank
+      expect(response.body["api_key"]).not_to be_blank
     end
 
     it "fails as wrong password" do
       @body[:user][:password] = "sadhkajshdjkdash"
       post :login, @body, format: :json
-      expect(response.status).to eq(:unauthorized)
+      expect(response.status).to eq(401)
     end
 
     it "fails as wrong email" do
       @body[:user][:email] = "n@test.com"
       post :login, @body, format: :json
-      expect(response.status).to eq(:unauthorized)
+      expect(response.status).to eq(401)
     end
   end
 end

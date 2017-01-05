@@ -17,7 +17,7 @@ RSpec.describe UserSkillsController, type: :controller do
     context "success" do
       it "works fine" do
         post :create, @body, format: :json
-        expect(response.status).to eq(200)
+        expect(response.status).to eq(201)
       end
     end
 
@@ -38,13 +38,13 @@ RSpec.describe UserSkillsController, type: :controller do
 
   describe "search" do
     before do
-      @user = create :user
+      user = create :user
       @skill = create :skill
-      UserSkill.create skill: @skill, user: create :user
-      UserSkill.create skill: @skill, user: create :user
-      UserSkill.create skill: @skill, user: create :user
-      UserSkill.create skill: @skill, user: create :user
-      @request.headers[:Authorization] = "Token token=#{@user.api_key}"
+      UserSkill.create skill: @skill, user: create(:user)
+      UserSkill.create skill: @skill, user: create(:user)
+      UserSkill.create skill: @skill, user: create(:user)
+      UserSkill.create skill: @skill, user: create(:user)
+      @request.headers[:Authorization] = "Token token=#{user.api_key}"
     end
 
     it "finds users" do

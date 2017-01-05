@@ -73,4 +73,13 @@ RSpec.describe UsersController, type: :controller do
       expect(response.status).to eq(401)
     end
   end
+
+  describe "signout" do
+    it "works fine" do
+      user = create :user
+      auth_header = { Authorization: user.api_key }
+      get :login, {}, { Authorization: user.api_key }
+      expect(response.status).to eq(200)
+    end
+  end
 end

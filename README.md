@@ -24,7 +24,7 @@ Things you may want to cover:
 
 Description | Request | Body | Method
 --- | --- | --- | ---
-user register | /users | `{ "user": {"email": "a@test.com", "password": "123456789", "first_name": "fname", last_name: "lname"} }` | **POST**
+user register | /users | `{ "user": {"email": "a@test.com", "password": "123456789", "first_name": "fname", "last_name": "lname"} }` | **POST**
 user login | /users/login | `{ "user": {"email": "a@test.com", "password": "123456789"} }`| **POST**
 signout | /users/signout |  | **GET**
 add skill | /user_skills | `{ "user_skill": {"skill_id": "music", "level": 3} }` | **POST**

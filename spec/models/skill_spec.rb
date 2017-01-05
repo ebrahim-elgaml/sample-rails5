@@ -7,25 +7,25 @@ RSpec.describe Skill, type: :model do
     end
 
     it "is happy when all is fine" do
-      @skill.should be_valid
+      expect(@skill).to be_valid
     end
 
     it "checks the presence of name" do
       @skill.name = ""
-      @skill.should_not be_valid
-      @skill.errors[:name].should == ["can't be blank"]
+      expect(@skill).not_to be_valid
+      expect(@skill.errors[:name]).to eq(["can't be blank"])
     end
 
     it "converts the name all downcase" do
       @skill.name = "MUSIC"
       @skill.save
-      @skill.name.should == "music"
+      expect(@skill.name).to eq("music")
     end
 
     it "cheks uniqueness of name" do
       @skill.save
       new_skill = Skill.new name: @skill.name
-      new_skill.should_not be_valid
+      expect(new_skill).not_to be_valid
     end
   end
 end

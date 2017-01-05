@@ -9,22 +9,22 @@ RSpec.describe UserSkill, type: :model do
     end
 
     it "is happy when all is fine" do
-      @user_skill.should be_valid
+      expect(@user_skill).to be_valid
     end
 
     it "checks the presence of level" do
       @user_skill.level = ""
-      @user_skill.should_not be_valid
+      expect(@user_skill).not_to be_valid
     end
 
     it "cheks range of level less than 5" do
       @user_skill.level = 7
-      @user_skill.should_not be_valid
+      expect(@user_skill).not_to be_valid
     end
 
     it "cheks range of level more than than 1" do
       @user_skill.level = 0
-      @user_skill.should_not be_valid
+      expect(@user_skill).not_to be_valid
     end
   end
 end

@@ -17,26 +17,26 @@ RSpec.describe UsersController, type: :controller do
       it "returns email already exists" do
         user = create :user
         @body[:user][:email] = user.email
-        post :create, @body, format: :json
+        post :create, params: @body, format: :json
         expect(response.status).to eq(422)
       end
 
       it "returns password too short" do
         @body[:user][:password] = "123"
-        post :create, @body, format: :json
+        post :create, params: @body, format: :json
         expect(response.status).to eq(422)
       end
 
       it "returns missing data" do
         @body[:user][:first_name] = ""
-        post :create, @body, format: :json
+        post :create, params: @body, format: :json
         expect(response.status).to eq(422)
       end
     end
 
     context "success" do
       it "works fine" do
-        post :create, @body, format: :json
+        post :create, params: @body, format: :json
         expect(response.status).to eq(201)
       end
     end
@@ -56,20 +56,20 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it "works fine" do
-      post :login, @body, format: :json
+      post :login, params: @body, format: :json
       expect(response.status).to eq(201)
       expect(response.body["api_key"]).not_to be_blank
     end
 
     it "fails as wrong password" do
       @body[:user][:password] = "sadhkajshdjkdash"
-      post :login, @body, format: :json
+      post :login, params: @body, format: :json
       expect(response.status).to eq(401)
     end
 
     it "fails as wrong email" do
       @body[:user][:email] = "n@test.com"
-      post :login, @body, format: :json
+      post :login, params: @body, format: :json
       expect(response.status).to eq(401)
     end
   end

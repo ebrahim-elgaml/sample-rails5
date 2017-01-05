@@ -1,5 +1,6 @@
 class UserSkill
   include Mongoid::Document
+
   field :user_id, type: String
   field :skill_id, type: String
   field :level, type: Integer
@@ -9,5 +10,4 @@ class UserSkill
 
   belongs_to :user, index: true
   belongs_to :skill, index: true
-
 end

@@ -8,30 +8,30 @@ RSpec.describe User, type: :model do
     end
 
     it "is happy when all is fine" do
-      @user.should be_valid
+      expect(@user).to be_valid
     end
 
     it "is has api_key" do
       @user.save!
-      @user.reload.api_key.should_not be_blank
+      expect(@user.reload.api_key).not_to be_blank
     end
 
     it "checks the presence of a first_name" do
       @user.first_name = ""
-      @user.should_not be_valid
-      @user.errors[:first_name].should == ["can't be blank"]
+      expect(@user).not_to be_valid
+      expect(@user.errors[:first_name]).to eq(["can't be blank"])
     end
 
     it "checks the presence of a last_name" do
       @user.last_name = ""
-      @user.should_not be_valid
-      @user.errors[:last_name].should == ["can't be blank"]
+      expect(@user).not_to be_valid
+      expect(@user.errors[:last_name]).to  eq(["can't be blank"])
     end
 
     it "converts the email all downcase" do
       @user.email = "EEEE@TEST.com"
       @user.save
-      @user.email.should == "eeee@test.com"
+      expect(@user.email).to eq("eeee@test.com")
     end
   end
 end

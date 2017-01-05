@@ -22,13 +22,6 @@ Things you may want to cover:
 
 Description | Request | Body | Method
 --- | --- | --- | ---
-user register | http://localhost:3000/users | `{
-	"user":{  
-  		"email": "oo@oo.com",
-  		"password": "1234563789",
-  		"first_name": "oo",
-  		"last_name": "ll"
-	}
-}` | **post**
+user register | http://localhost:3000/users | `dassad` | **post**
 
 

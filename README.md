@@ -2,8 +2,6 @@
 # sample-rails5
 
 
-Things you may want to cover:
-
 * Ruby version: 2.3.3
 
 * Rails version: 5.0.1
@@ -12,7 +10,7 @@ Things you may want to cover:
 
 * Run specs: bundle exec rspec
 
-* Api only so no view.
+* Api only so no views.
 
 * Mini description : user can add list of skills with a level for each skill and users can search for each other by skill.
 
